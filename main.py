@@ -1,4 +1,6 @@
+import zipfile
 from tkinter import *
+
 import os
 import tkintermapview as tkm
 
@@ -7,10 +9,13 @@ window.title('TheMonuments of Domodedovo')
 window.geometry('960x600')
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
+with zipfile.ZipFile('offline_tiles.zip') as file:
+    file.extractall()
 database_path = os.path.join(script_directory, "offline_tiles.db")
 
+
 map_widget = tkm.TkinterMapView(window, width=960, height=600, corner_radius=0, use_database_only=True,
-                                database_path=database_path, max_zoom=20)
+                                database_path=str(database_path), max_zoom=20)
 map_widget.place(relx=0.5, rely=0.5, anchor=CENTER)
 
 
