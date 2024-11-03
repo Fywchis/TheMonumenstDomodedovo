@@ -4,6 +4,14 @@ import tkintermapview as tkm
 import Monument as Mn
 
 MIN_ZOOM_LEVEL = 16
+CLICK_RADIUS = 0.001  # aprox 100 metres
+markers = []
+
+
+def create_marker(lat, lng, text="Marker"):
+    marker = map_widget.set_marker(lat, lng, text=text, text_color="white")
+    markers.append(marker)  # Store the marker
+    return marker
 
 
 def enforce_min_zoom():
@@ -13,10 +21,6 @@ def enforce_min_zoom():
         map_widget.set_zoom(MIN_ZOOM_LEVEL)
 
     window.after(10, enforce_min_zoom)
-
-
-def left_clicked(marker):
-    print(marker.position)
 
 
 window = Tk()
@@ -38,14 +42,18 @@ map_widget.set_zoom(MIN_ZOOM_LEVEL)
 map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga",
                            max_zoom=19)
 
+
+
 Obelisk = Mn.TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы",
                          address="", description="")
 # adr = tkm.convert_coordinates_to_address(55.440687, 37.766823)
 # print(adr.street, adr.housenumber, adr.postal, adr.city,
 #       adr.state, adr.country, adr.latlng)
-obelisk_marker = map_widget.set_marker(Obelisk.deg_x, Obelisk.deg_y,
-                                       Obelisk.name, text_color="white")
-obelisk_marker.click(left_clicked)
+# obelisk_marker = map_widget.set_marker(Obelisk.deg_x, Obelisk.deg_y,
+#                                        Obelisk.name, text_color="white")
+create_marker(Obelisk.deg_x, Obelisk.deg_y, Obelisk.name)
+
+
 
 enforce_min_zoom()
 
