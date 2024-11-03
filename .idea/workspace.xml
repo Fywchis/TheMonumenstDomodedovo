@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Add git lfs">
-      <change beforePath="$PROJECT_DIR$/.idea/SchoolProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SchoolProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Add name for 1st marker and start new function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monument.py" beforeDir="false" afterPath="$PROJECT_DIR$/Monument.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +100,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727202028806</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add name for 1st marker and start new function">
+      <option name="closed" value="true" />
+      <created>1730565233810</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730565233810</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +125,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="Added map and set position on Domodedovo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added map and set position on Domodedovo" />
+    <MESSAGE value="Add name for 1st marker and start new function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add name for 1st marker and start new function" />
   </component>
 </project>
