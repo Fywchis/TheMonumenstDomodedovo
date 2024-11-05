@@ -1,9 +1,8 @@
 
 class TheMonument:
-    def __init__(self, deg_x, deg_y, description):
+    def __init__(self, deg_x, deg_y, name, address, description):
         self.deg_x = deg_x
         self.deg_y = deg_y
+        self.name = name
         self.description = description
-
-    def clicked(self):
-        pass
+        self.address = address
