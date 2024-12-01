@@ -1,4 +1,5 @@
-from tkinter import*
+from tkinter import *
+import requests
 import os
 import tkintermapview as tkm
 import Monument as Mn
@@ -7,13 +8,26 @@ MIN_ZOOM_LEVEL = 16
 CLICK_RADIUS = 0.005  # aprox 100 metres
 markers = []
 
+def main():
+    # Example: Make an HTTP request
+    response = requests.get("https://api.github.com")
+    print("GitHub API Response:", response.json())
+
+
+if __name__ == "__main__":
+    main()
+
+
+def button_action():
+    print("Button clicked!")
+
 
 def on_marker_click(name):
-    print("hello")
+    print("clicled")
 
 
 def create_marker(lat, lng, text="Marker"):
-    marker = map_widget.set_marker(lat, lng, text=text, text_color="white")
+    marker = map_widget.set_marker(lat, lng, text=text, text_color="white", command=on_marker_click(text))
     markers.append(marker)  # Store the marker
     return marker
 
@@ -74,10 +88,15 @@ create_marker(lensa.deg_x, lensa.deg_y, lensa.name)
 
 enforce_min_zoom()
 
-for marker in markers:
-    x, y = marker.position
-    print(x, y)
-    invisible_button = Button()
+button = Button(window, text="Click Me!", command=button_action)
+button.place(relx=0.8, rely=0.1)
 
-    map_widget.canvas.tag_bind(invisible_button, "<Button-1>", lambda event, m=marker: on_marker_click(m))
+# Place the button on top of the map using absolute positioning
+button.place(relx=0.8, rely=0.1)
+
+# for marker in markers:
+#     x, y = marker.position
+#     # print(x, y)
+#     invisible_button = Button()
+#     map_widget.canvas.tag_bind(invisible_button, "<Button-1>", lambda event, m=marker: on_marker_click(m))
 window.mainloop()

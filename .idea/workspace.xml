@@ -4,8 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Add on click function">
+    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Add the coordinates search for button">
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/_win32verstamp_pywin32ctypes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/afxres.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/commctrl.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/mmsystem.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/netbios.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ntsecuritycon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pywin32_bootstrap.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pywin32_testutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pywintypes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rasutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/regcheck.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/regutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/sspi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/sspicon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win2kras.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32con.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32cryptcon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32evtlogutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32gui_struct.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32inetcon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32netcon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32pdhquery.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32pdhutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32rcparser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32serviceutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32timezone.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32traceutil.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/win32verstamp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/winerror.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/winioctlcon.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/winnt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/winperf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/winxptheme.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,18 +66,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Python.Database.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "settings.editor.selected.configurable": "proofread"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Python.Database.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="SchoolProject" />
@@ -132,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730639294444</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add the coordinates search for button">
+      <option name="closed" value="true" />
+      <created>1730819375819</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730819375819</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -153,7 +195,8 @@
     <MESSAGE value="Add min_zoom" />
     <MESSAGE value="Add function to create markers" />
     <MESSAGE value="Add on click function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add on click function" />
+    <MESSAGE value="Add the coordinates search for button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add the coordinates search for button" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
