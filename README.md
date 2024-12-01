@@ -10,12 +10,12 @@ THE MONUMENTS OF DOMODEDOVO
 1. СКОПИРОВАТЬ РЕПОЗИТОРИЙ:
    git clone <your-repo-url>
    cd my_project
-   
+
 2. УСТАНОВИТЬ ЗАВИСМОСТИ:
 ```
 pip install -r requirements.txt
 ```
-or
+ИЛИ
 ```
 pip install .
 ```
