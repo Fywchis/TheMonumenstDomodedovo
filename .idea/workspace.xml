@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Change in clicking on map">
+    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="clear code and improve enforce_min_zoom function">
+      <change afterPath="$PROJECT_DIR$/Images/obelisk_image.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monument.py" beforeDir="false" afterPath="$PROJECT_DIR$/monument.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +42,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "Python.Database.executor": "Run",
+    "Python.load_offline_tiles.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
@@ -48,7 +51,34 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\PycharmProjects\TheMonumenstDomodedovo\Images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="load_offline_tiles" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SchoolProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/load_offline_tiles.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="SchoolProject" />
       <option name="ENV_FILES" value="" />
@@ -71,6 +101,11 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.load_offline_tiles" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -160,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733081731631</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="clear code and improve enforce_min_zoom function">
+      <option name="closed" value="true" />
+      <created>1738994720511</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1738994720511</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,7 +227,8 @@
     <MESSAGE value="Add the coordinates search for button" />
     <MESSAGE value="Fix the installation" />
     <MESSAGE value="Change in clicking on map" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change in clicking on map" />
+    <MESSAGE value="clear code and improve enforce_min_zoom function" />
+    <option name="LAST_COMMIT_MESSAGE" value="clear code and improve enforce_min_zoom function" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

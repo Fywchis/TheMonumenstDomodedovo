@@ -1,24 +1,18 @@
 from tkinter import *
-import requests
 import os
 import tkintermapview as tkm
-import Monument as Mn
+from monument import *
+from PIL import Image, ImageTk
 
 MIN_ZOOM_LEVEL = 16
 CLICK_RADIUS = 0.001
 markers = []
 
 
-def main():
-    # Example: Make an HTTP request
-    response = requests.get("https://api.github.com")
-    print("GitHub API Response:", response.json())
-
-
-def create_marker(lat, lng, text="Marker"):
-    marker = map_widget.set_marker(lat, lng, text=text, text_color="white")
-    markers.append(marker)  # Store the marker
-    return marker
+# def create_marker(lat, lng, text="Marker"):
+#     marker = map_widget.set_marker(lat, lng, text=text, text_color="white")
+#     markers.append(marker)
+#     return marker
 
 
 def enforce_min_zoom():
@@ -38,50 +32,53 @@ def enforce_position():
     window.after(1000, enforce_position)
 
 
-def cursor_image():
-    pos = map_widget.mouse_click_position
-    print(pos)
-    for marker in markers:
-        marker_lat, marker_lng = marker.position
+# def on_map_click(coordinates_tuple):
+#     lat, lng = coordinates_tuple
+#
+#     for marker in markers:
+#         marker_lat, marker_lng = marker.position
+#         if abs(lat - marker_lat) < CLICK_RADIUS and abs(lng - marker_lng) < CLICK_RADIUS:
+#             print(f"Marker at {marker.position} clicked!")
 
-    window.after(100, cursor_image and map_widget.mouse_click)
+def marker_event(marker):
+    info_window = Toplevel(window)
+    info_window.title(f"Информация: {marker.text}")
+    info_window.geometry("300x200")
 
-
-def on_map_click(coordinates_tuple):
-    lat, lng = coordinates_tuple
-
-    for marker in markers:
-        marker_lat, marker_lng = marker.position
-        if abs(lat - marker_lat) < CLICK_RADIUS and abs(lng - marker_lng) < CLICK_RADIUS:
-            print(f"Marker at {marker.position} clicked!")
+    Label(info_window, text=f"Достопримечательность: {marker.text}").pack(pady=10)
+    Label(info_window, text=f"Координаты: {marker.position}").pack()
+    Label(info_window, text=f"{marker.data}").pack(pady=2)
 
 
 window = Tk()
 window.title('Достопримечательности Домодедово')
-window.geometry('960x600')
+window.geometry('800x600')
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
 database_path = os.path.join(script_directory, "offline_tiles.db")
+image_directory = os.path.join(script_directory, "images")
+
 map_widget = tkm.TkinterMapView(window, width=960, height=600, corner_radius=0,
-                                database_path=str(database_path), max_zoom=19)
+                                database_path=str(database_path), use_database_only=True,
+                                max_zoom=19)
 
 map_widget.pack(fill="both", expand=True)
 map_widget.place(relx=0.5, rely=0.5, anchor=CENTER)
 map_widget.set_position(55.4407981, 37.7516731)
 map_widget.set_zoom(MIN_ZOOM_LEVEL)
-map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga",
-                           max_zoom=19)
-map_widget.add_left_click_map_command(on_map_click)
+map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=19)
 
-canvas = map_widget.canvas
-Obelisk = Mn.TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы",
-                         address="", description="")
+# map_widget.add_left_click_map_command(on_map_click)
 
-create_marker(Obelisk.deg_x, Obelisk.deg_y, Obelisk.name)
+obelisk_image = ImageTk.PhotoImage(Image.open(os.path.join(image_directory, "obelisk_image.jpg")).resize((200, 100)))
 
+
+Obelisk = TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы", info="В честь войны")
+# create_marker(Obelisk.deg_x, Obelisk.deg_y, Obelisk.name)
+marker_1 = map_widget.set_marker(Obelisk.deg_x, Obelisk.deg_y, Obelisk.name, text_color="white",
+                                 image=obelisk_image, data=Obelisk.info, command=marker_event)
 
 enforce_min_zoom()
-cursor_image()
 enforce_position()
 
 window.mainloop()
