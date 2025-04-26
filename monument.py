@@ -1,9 +1,14 @@
-import tkintermapview as tkm
+from os import *
+from PIL import Image, ImageTk
+
+script_directory = path.dirname(path.abspath(__file__))
+image_directory = path.join(script_directory, "images")
 
 
 class TheMonument:
-    def __init__(self, deg_x, deg_y, name, info):
+    def __init__(self, deg_x, deg_y, name, link):
         self.deg_x = deg_x
         self.deg_y = deg_y
         self.name = name
-        self.info = info
+        self.link = link
+        self.image = ImageTk.PhotoImage(Image.open(path.join(image_directory, f"{name.lower()}.jpg")).resize((200, 100)))

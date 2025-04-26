@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="clear code and improve enforce_min_zoom function">
-      <change afterPath="$PROJECT_DIR$/Images/obelisk_image.jpg" afterDir="false" />
+    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Remake clicking function,adjust in monument class,&#10;make image on marker">
+      <change afterPath="$PROJECT_DIR$/Images/обелиск славы.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monument.py" beforeDir="false" afterPath="$PROJECT_DIR$/monument.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/obelisk_image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Images/обелиск салавы.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monument.py" beforeDir="false" afterPath="$PROJECT_DIR$/monument.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +33,6 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2mF8XW4HfYPEvOJy7ZXjFWa3Dzr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -44,14 +44,19 @@
     "Python.Database.executor": "Run",
     "Python.load_offline_tiles.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Admin/PycharmProjects/TheMonumenstDomodedovo/libs",
+    "last_opened_file_path": "C:/Users/Admin/PycharmProjects/TheMonumenstDomodedovo/Images",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\PycharmProjects\TheMonumenstDomodedovo\Images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Admin\PycharmProjects\TheMonumenstDomodedovo\Images" />
     </key>
@@ -101,9 +106,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SchoolProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.load_offline_tiles" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -203,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738994720511</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Remake clicking function,adjust in monument class,&#10;make image on marker">
+      <option name="closed" value="true" />
+      <created>1744188879966</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1744188879966</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +263,8 @@
     <MESSAGE value="Fix the installation" />
     <MESSAGE value="Change in clicking on map" />
     <MESSAGE value="clear code and improve enforce_min_zoom function" />
-    <option name="LAST_COMMIT_MESSAGE" value="clear code and improve enforce_min_zoom function" />
+    <MESSAGE value="Remake clicking function,adjust in monument class,&#10;make image on marker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remake clicking function,adjust in monument class,&#10;make image on marker" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
