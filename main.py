@@ -1,3 +1,4 @@
+import builtins
 import os
 from tkinter import *
 import tkintermapview as tkm
@@ -18,6 +19,7 @@ def enforce_min_zoom():
         map_widget.set_position(position_x, position_y)
     window.after(100, enforce_min_zoom)
 
+
 def enforce_position():
     map_pos_lat, map_pos_lng = map_widget.get_position()
     if (map_pos_lat >= 55.45818700530422 or map_pos_lat <= 55.41466320701811 or map_pos_lng >= 37.78950373603266
@@ -35,19 +37,25 @@ def enforce_position():
 #             print(f"Marker at {marker.position} clicked!")
 
 def marker_event(marker):
-    file = open(os.path.join(source_directory, f"{marker.text.lower()}.txt"), os.O_RDONLY)
-    contents = read(file, 100)
+
+    with builtins.open(os.path.join(source_directory, f"{marker.text.lower()}.txt", 'r')) as file:
+        contents = file.read()
+
     info_window = Toplevel(window)
     info_window.title(f"Информация: {marker.text}")
     info_window.geometry("300x200")
+
     frame = Frame(info_window)
+
     Label(frame, text=f"Достопримечательность: {marker.text}").pack()
     Label(frame, text=f"Координаты: {marker.position}").pack()
     Label(frame, text=f"{contents}").pack()
     Label(frame, text="Больше можно узнать на").pack(side=LEFT)
+
     url = Label(frame, text="сайте", fg='blue', cursor='hand2')
     url.pack(side=LEFT, ipadx=0)
     url.bind('<Button-1>', lambda e: webbrowser.open(marker.data))
+
     frame.pack(anchor=CENTER)
 
 
