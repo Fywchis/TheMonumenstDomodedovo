@@ -1,8 +1,9 @@
-from tkinter import *
 import os
+from tkinter import *
 import tkintermapview as tkm
 from monument import *
 import webbrowser
+
 
 MIN_ZOOM_LEVEL = 16
 CLICK_RADIUS = 0.001
@@ -16,7 +17,6 @@ def enforce_min_zoom():
         map_widget.set_zoom(MIN_ZOOM_LEVEL)
         map_widget.set_position(position_x, position_y)
     window.after(100, enforce_min_zoom)
-
 
 def enforce_position():
     map_pos_lat, map_pos_lng = map_widget.get_position()
@@ -35,14 +35,15 @@ def enforce_position():
 #             print(f"Marker at {marker.position} clicked!")
 
 def marker_event(marker):
+    file = open(os.path.join(source_directory, f"{marker.text.lower()}.txt"), os.O_RDONLY)
+    contents = read(file, 100)
     info_window = Toplevel(window)
     info_window.title(f"Информация: {marker.text}")
     info_window.geometry("300x200")
     frame = Frame(info_window)
-
     Label(frame, text=f"Достопримечательность: {marker.text}").pack()
     Label(frame, text=f"Координаты: {marker.position}").pack()
-    # Label(info_window, text=f"{marker.data}").pack(pady=2)
+    Label(frame, text=f"{contents}").pack()
     Label(frame, text="Больше можно узнать на").pack(side=LEFT)
     url = Label(frame, text="сайте", fg='blue', cursor='hand2')
     url.pack(side=LEFT, ipadx=0)
@@ -67,7 +68,8 @@ monuments = {
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
 database_path = os.path.join(script_directory, "offline_tiles.db")
-image_directory = os.path.join(script_directory, "images")
+source_directory = os.path.join(script_directory, "info_img")
+
 
 map_widget = tkm.TkinterMapView(window, width=960, height=600, corner_radius=0,
                                 database_path=str(database_path), use_database_only=True,
