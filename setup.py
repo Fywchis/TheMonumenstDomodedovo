@@ -8,6 +8,10 @@ setup(
         "requests",  # Add your libraries here
         "os",
         "tkintermapview",
+        "builtins",
+        "tkinter",
+        "monument",
+        "webbrowser"
 
     ],
     entry_points={
