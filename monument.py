@@ -2,7 +2,7 @@ from os import *
 from PIL import Image, ImageTk
 
 script_directory = path.dirname(path.abspath(__file__))
-image_directory = path.join(script_directory, "images")
+source_directory = path.join(script_directory, "info_img")
 
 
 class TheMonument:
@@ -11,4 +11,5 @@ class TheMonument:
         self.deg_y = deg_y
         self.name = name
         self.link = link
-        self.image = ImageTk.PhotoImage(Image.open(path.join(image_directory, f"{name.lower()}.jpg")).resize((200, 100)))
+        self.image = ImageTk.PhotoImage(Image.open(path.join(source_directory,
+                                                             f"{name.lower()}.jpg")).resize((200, 100)))
