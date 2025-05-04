@@ -90,8 +90,6 @@ monuments = {
     TheMonument(55.409595, 37.739189, "Стена скорби"),
     TheMonument(55.420316, 37.743705, "Курганы вятичей"),
     TheMonument(55.433077, 37.766199, "Богиня победы Ника"),
-
-
 }
 
 script_directory = os.path.dirname(os.path.abspath(__file__))
