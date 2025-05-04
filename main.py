@@ -9,10 +9,10 @@ from geocoder.osm import OsmQuery
 
 
 MIN_ZOOM_LEVEL = 15
-upper_lat = 55.48818700530422
-down_lat = 55.40466320701811
-west_lng = 37.702855481638126
-east_lng = 37.78950373603266
+upper_lat = 55.45453725452048
+down_lat = 55.40167158988299
+west_lng = 37.699313912200495
+east_lng = 37.79927875353329
 
 
 OsmQuery._build_headers = _build_headers
@@ -29,8 +29,8 @@ def enforce_min_zoom():
 
 def enforce_position():
     map_pos_lat, map_pos_lng = map_widget.get_position()
-    if (map_pos_lat >= 55.45553725452048 or map_pos_lat <= 55.40167158988299 or map_pos_lng >= 37.79927875353329
-            or map_pos_lng <= 37.699313912200495):
+    if (map_pos_lat >= upper_lat or map_pos_lat <= down_lat or map_pos_lng >= east_lng
+            or map_pos_lng <= west_lng):
         map_widget.set_position(55.4407981, 37.7516731)
     window.after(1000, enforce_position)
 
