@@ -4,11 +4,13 @@ from tkinter import *
 import tkintermapview as tkm
 from monument import *
 import webbrowser
+from osmfix import _build_headers
+from geocoder.osm import OsmQuery
 
 
 MIN_ZOOM_LEVEL = 16
-CLICK_RADIUS = 0.001
-markers = []
+
+OsmQuery._build_headers = _build_headers
 
 
 def enforce_min_zoom():
@@ -17,7 +19,7 @@ def enforce_min_zoom():
     if current_zoom < MIN_ZOOM_LEVEL:
         map_widget.set_zoom(MIN_ZOOM_LEVEL)
         map_widget.set_position(position_x, position_y)
-    window.after(100, enforce_min_zoom)
+    window.after(250, enforce_min_zoom)
 
 
 def enforce_position():
@@ -36,33 +38,52 @@ def enforce_position():
 #         if abs(lat - marker_lat) < CLICK_RADIUS and abs(lng - marker_lng) < CLICK_RADIUS:
 #             print(f"Marker at {marker.position} clicked!")
 
-def marker_event(marker):
+def size_update(root: Toplevel, frame: Frame):
+    pass
 
-    with builtins.open(os.path.join(source_directory, f"{marker.text.lower()}.txt", 'r')) as file:
+
+def marker_event(marker: tkm.map_widget.CanvasPositionMarker):
+    x, y = marker.position
+    adr = tkm.convert_coordinates_to_address(x, y)
+    print(adr)
+    adr_info = adr.state, adr.city, adr.street, adr.latlng
+
+    with builtins.open(os.path.join(source_directory, f"{marker.text.lower()}.txt"), 'r', encoding='utf-8') as file:
         contents = file.read()
 
     info_window = Toplevel(window)
     info_window.title(f"Информация: {marker.text}")
-    info_window.geometry("300x200")
 
     frame = Frame(info_window)
 
-    Label(frame, text=f"Достопримечательность: {marker.text}").pack()
-    Label(frame, text=f"Координаты: {marker.position}").pack()
-    Label(frame, text=f"{contents}").pack()
-    Label(frame, text="Больше можно узнать на").pack(side=LEFT)
+    Label(frame, text=f"Достопримечательность: {marker.text}").pack(anchor='w')
+    Label(frame, text=f"Находится по адресу \"{adr.state} {adr.city} {adr.street}\" {adr.latlng}").pack(anchor='w')
+    Label(frame, text=contents, justify="left").pack(anchor='w')
 
-    url = Label(frame, text="сайте", fg='blue', cursor='hand2')
-    url.pack(side=LEFT, ipadx=0)
-    url.bind('<Button-1>', lambda e: webbrowser.open(marker.data))
+    if marker.data is not None:
+        Label(frame, text="Больше можно узнать на").pack(side=LEFT)
+        url = Label(frame, text="сайте", fg='blue', cursor='hand2')
+        url.pack(side=LEFT)
+        url.bind('<Button-1>', lambda e: webbrowser.open(marker.data))
 
     frame.pack(anchor=CENTER)
+    info_window.update()
+
+    width = frame.winfo_width() + 20
+    height = frame.winfo_height() + 20
+    info_window.geometry(f"{width}x{height}")
+
+
 
 
 def marker_creation(marker_set):
-    for i in marker_set:
-        map_widget.set_marker(i.deg_x, i.deg_y, i.name, text_color="white",
-                              image=i.image, data=i.link, command=marker_event)
+    for monument in marker_set:
+        if monument.image:
+            map_widget.set_marker(monument.deg_x, monument.deg_y, monument.name, text_color="white",
+                                  image=monument.image, data=monument.link, command=marker_event)
+        else:
+            map_widget.set_marker(monument.deg_x, monument.deg_y, monument.name, text_color="white", data=monument.link, command=marker_event)
+
 
 
 window = Tk()

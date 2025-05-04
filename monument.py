@@ -10,6 +10,14 @@ class TheMonument:
         self.deg_x = deg_x
         self.deg_y = deg_y
         self.name = name
-        self.link = link
-        self.image = ImageTk.PhotoImage(Image.open(path.join(source_directory,
-                                                             f"{name.lower()}.jpg")).resize((200, 100)))
+
+        if link:
+            self.link = link
+        else:
+            self.link = None
+        try:
+            self.image_path = path.join(source_directory, f"{name.lower()}.jpg")
+            self.image = ImageTk.PhotoImage(Image.open(path.join(self.image_path)).resize((200, 100)))
+        except FileNotFoundError:
+            self.image = None
+
