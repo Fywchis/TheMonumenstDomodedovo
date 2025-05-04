@@ -4,11 +4,18 @@ from tkinter import *
 import tkintermapview as tkm
 from monument import *
 import webbrowser
+from osmfix import _build_headers
+from geocoder.osm import OsmQuery
 
 
-MIN_ZOOM_LEVEL = 16
-CLICK_RADIUS = 0.001
-markers = []
+MIN_ZOOM_LEVEL = 15
+upper_lat = 55.45453725452048
+down_lat = 55.40167158988299
+west_lng = 37.699313912200495
+east_lng = 37.79927875353329
+
+
+OsmQuery._build_headers = _build_headers
 
 
 def enforce_min_zoom():
@@ -17,52 +24,56 @@ def enforce_min_zoom():
     if current_zoom < MIN_ZOOM_LEVEL:
         map_widget.set_zoom(MIN_ZOOM_LEVEL)
         map_widget.set_position(position_x, position_y)
-    window.after(100, enforce_min_zoom)
+    window.after(250, enforce_min_zoom)
 
 
 def enforce_position():
     map_pos_lat, map_pos_lng = map_widget.get_position()
-    if (map_pos_lat >= 55.45818700530422 or map_pos_lat <= 55.41466320701811 or map_pos_lng >= 37.78950373603266
-            or map_pos_lng <= 37.732855481638126):
+    if (map_pos_lat >= upper_lat or map_pos_lat <= down_lat or map_pos_lng >= east_lng
+            or map_pos_lng <= west_lng):
         map_widget.set_position(55.4407981, 37.7516731)
     window.after(1000, enforce_position)
 
 
-# def on_map_click(coordinates_tuple):
-#     lat, lng = coordinates_tuple
-#
-#     for marker in markers:
-#         marker_lat, marker_lng = marker.position
-#         if abs(lat - marker_lat) < CLICK_RADIUS and abs(lng - marker_lng) < CLICK_RADIUS:
-#             print(f"Marker at {marker.position} clicked!")
+def marker_event(marker: tkm.map_widget.CanvasPositionMarker):
+    x, y = marker.position
+    address = tkm.convert_coordinates_to_address(x, y)
 
-def marker_event(marker):
-
-    with builtins.open(os.path.join(source_directory, f"{marker.text.lower()}.txt", 'r')) as file:
+    with builtins.open(os.path.join(source_directory, f"{marker.text.lower()}.txt"), 'r', encoding='utf-8') as file:
         contents = file.read()
 
     info_window = Toplevel(window)
     info_window.title(f"Информация: {marker.text}")
-    info_window.geometry("300x200")
 
     frame = Frame(info_window)
 
-    Label(frame, text=f"Достопримечательность: {marker.text}").pack()
-    Label(frame, text=f"Координаты: {marker.position}").pack()
-    Label(frame, text=f"{contents}").pack()
-    Label(frame, text="Больше можно узнать на").pack(side=LEFT)
+    Label(frame, text=f"Достопримечательность: {marker.text}").pack(anchor='w')
+    Label(frame, text=f"Находится по адресу {address.state} {address.city}"
+                      f" {address.street} и на координатах {address.latlng}").pack(anchor='w')
+    Label(frame, text=contents, justify="left").pack(anchor='w')
 
-    url = Label(frame, text="сайте", fg='blue', cursor='hand2')
-    url.pack(side=LEFT, ipadx=0)
-    url.bind('<Button-1>', lambda e: webbrowser.open(marker.data))
+    if marker.data is not None:
+        Label(frame, text="Больше можно узнать на").pack(side=LEFT)
+        url = Label(frame, text="сайте", fg='blue', cursor='hand2')
+        url.pack(side=LEFT)
+        url.bind('<Button-1>', lambda e: webbrowser.open(marker.data))
 
     frame.pack(anchor=CENTER)
+    info_window.update()
+
+    width = frame.winfo_width() + 20
+    height = frame.winfo_height() + 20
+    info_window.geometry(f"{width}x{height}")
 
 
 def marker_creation(marker_set):
-    for i in marker_set:
-        map_widget.set_marker(i.deg_x, i.deg_y, i.name, text_color="white",
-                              image=i.image, data=i.link, command=marker_event)
+    for monument in marker_set:
+        if monument.image:
+            map_widget.set_marker(monument.deg_x, monument.deg_y, monument.name, text_color="white",
+                                  image=monument.image, data=monument.link, command=marker_event)
+        else:
+            map_widget.set_marker(monument.deg_x, monument.deg_y, monument.name, text_color="white",
+                                  data=monument.link, command=marker_event)
 
 
 window = Tk()
@@ -70,11 +81,14 @@ window.title('Достопримечательности Домодедово')
 window.geometry('960x600')
 
 monuments = {
-    TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы", link="google.com"),
-
+    TheMonument(55.440687, 37.766823, "Обелиск славы"),
+    TheMonument(55.409595, 37.739189, "Стена скорби"),
+    TheMonument(55.420316, 37.743705, "Курганы вятичей"),
+    TheMonument(55.433077, 37.766199, "Богиня победы Ника"),
 }
 
-script_directory = os.path.dirname(os.path.abspath(__file__))
+
+script_directory = os.getcwd()
 database_path = os.path.join(script_directory, "offline_tiles.db")
 source_directory = os.path.join(script_directory, "info_img")
 
@@ -88,15 +102,6 @@ map_widget.place(relx=0.5, rely=0.5, anchor=CENTER)
 map_widget.set_position(55.4407981, 37.7516731)
 map_widget.set_zoom(MIN_ZOOM_LEVEL)
 map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=19)
-
-# map_widget.add_left_click_map_command(on_map_click)
-
-
-# Obelisk = TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы", info="В честь войны")
-# Obelisk = TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы", info="В честь войны")
-# create_marker(Obelisk.deg_x, Obelisk.deg_y, Obelisk.name)
-# marker_1 = map_widget.set_marker(Obelisk.deg_x, Obelisk.deg_y, Obelisk.name, text_color="white",
-#                                  image=Obelisk.image, data=Obelisk.info, command=marker_event)
 
 enforce_min_zoom()
 enforce_position()

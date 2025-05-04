@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Make more efficient marker creation, delete info in class, create image in class, make hyperlink inside information window">
+    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Remove useless code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/offline_tiles.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,12 +67,13 @@
     "Python.Database.executor": "Run",
     "Python.load_offline_tiles.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.osmfix.executor": "Run",
     "Python.test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Admin/PycharmProjects/TheMonumenstDomodedovo/Images",
+    "last_opened_file_path": "C:/Users/Admin/ProgrammingProjects/TheMonumenstDomodedovo",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -83,6 +82,7 @@
       <recent name="C:\Users\Admin\PycharmProjects\TheMonumenstDomodedovo\Images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\ProgrammingProjects\TheMonumenstDomodedovo" />
       <recent name="C:\Users\Admin\PycharmProjects\TheMonumenstDomodedovo\Images" />
     </key>
   </component>
@@ -131,6 +131,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="osmfix" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SchoolProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/osmfix.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SchoolProject" />
       <option name="ENV_FILES" value="" />
@@ -155,6 +177,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.load_offline_tiles" />
+        <item itemvalue="Python.osmfix" />
         <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
@@ -279,7 +303,71 @@
       <option name="project" value="LOCAL" />
       <updated>1745680406663</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="rework file open and read">
+      <option name="closed" value="true" />
+      <created>1745781734349</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745781734349</updated>
+    </task>
+    <task id="LOCAL-00015" summary="rework file open and read">
+      <option name="closed" value="true" />
+      <created>1745782181473</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1745782181473</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add new libs">
+      <option name="closed" value="true" />
+      <created>1745841654329</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1745841654329</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add exception catch on image in TheMonument class&#10;Fix API &#10;Add info in the txt file">
+      <option name="closed" value="true" />
+      <created>1746366802165</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746366802165</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Add new monuments and markers with images&#10;Remake enforce min zoom&#10;Add load_offline_tiles.py">
+      <option name="closed" value="true" />
+      <created>1746372913351</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1746372913351</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Make code more readable">
+      <option name="closed" value="true" />
+      <created>1746374144522</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1746374144522</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Fix grammar mistakes in description">
+      <option name="closed" value="true" />
+      <created>1746375490564</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1746375490564</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Remove useless code">
+      <option name="closed" value="true" />
+      <created>1746375840815</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1746375840815</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -310,7 +398,14 @@
     <MESSAGE value="Remake clicking function,adjust in monument class,&#10;make image on marker" />
     <MESSAGE value="Make more efficient marker creation, delete info in class, create image in class, make hyperlink inside information window" />
     <MESSAGE value="fixup! Make more efficient marker creation, delete info in class, create image in class, make hyperlink inside information window" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixup! Make more efficient marker creation, delete info in class, create image in class, make hyperlink inside information window" />
+    <MESSAGE value="rework file open and read" />
+    <MESSAGE value="Add new libs" />
+    <MESSAGE value="Add exception catch on image in TheMonument class&#10;Fix API &#10;Add info in the txt file" />
+    <MESSAGE value="Add new monuments and markers with images&#10;Remake enforce min zoom&#10;Add load_offline_tiles.py" />
+    <MESSAGE value="Make code more readable" />
+    <MESSAGE value="Fix grammar mistakes in description" />
+    <MESSAGE value="Remove useless code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove useless code" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
