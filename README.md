@@ -8,26 +8,4 @@ THE MONUMENTS OF DOMODEDOVO
 
 Петров Семён Андреевич
 
-
-КАК УСТАНОВИТЬ
-
-1. СКОПИРОВАТЬ РЕПОЗИТОРИЙ:
-   git clone <your-repo-url>
-   cd my_project
-
-2. УСТАНОВИТЬ ЗАВИСМОСТИ:
-```
-pip install -r requirements.txt
-```
-ИЛИ
-```
-pip install .
-```
-3. ЗАПУСТИТЬ КОД:
-```
-python main.py
-```
-(ОПЦИОНАЛЬНО) ИСПОЛЬЗУЯ CLI:
-```
-my_project
-```
+Чтобы запустить используйте `main.exe`
