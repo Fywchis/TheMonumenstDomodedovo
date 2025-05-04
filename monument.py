@@ -1,7 +1,7 @@
 from os import *
 from PIL import Image, ImageTk
 
-script_directory = path.dirname(path.abspath(__file__))
+script_directory = getcwd()
 source_directory = path.join(script_directory, "info_img")
 
 

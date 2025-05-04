@@ -87,7 +87,8 @@ monuments = {
     TheMonument(55.433077, 37.766199, "Богиня победы Ника"),
 }
 
-script_directory = os.path.dirname(os.path.abspath(__file__))
+
+script_directory = os.getcwd()
 database_path = os.path.join(script_directory, "offline_tiles.db")
 source_directory = os.path.join(script_directory, "info_img")
 
