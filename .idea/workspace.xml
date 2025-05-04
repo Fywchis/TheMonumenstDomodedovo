@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Add new libs">
-      <change afterPath="$PROJECT_DIR$/osmfix.py" afterDir="false" />
+    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Add exception catch on image in TheMonument class&#10;Fix API &#10;Add info in the txt file">
+      <change afterPath="$PROJECT_DIR$/info_img/богиня победы ника.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info_img/курганы вятичей.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info_img/стена скорби.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/info_img/обелиск славы.txt" beforeDir="false" afterPath="$PROJECT_DIR$/info_img/обелиск славы.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/monument.py" beforeDir="false" afterPath="$PROJECT_DIR$/monument.py" afterDir="false" />
@@ -180,6 +181,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.load_offline_tiles" />
         <item itemvalue="Python.osmfix" />
         <item itemvalue="Python.test" />
       </list>
@@ -329,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745841654329</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add exception catch on image in TheMonument class&#10;Fix API &#10;Add info in the txt file">
+      <option name="closed" value="true" />
+      <created>1746366802165</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1746366802165</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -362,7 +372,8 @@
     <MESSAGE value="fixup! Make more efficient marker creation, delete info in class, create image in class, make hyperlink inside information window" />
     <MESSAGE value="rework file open and read" />
     <MESSAGE value="Add new libs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add new libs" />
+    <MESSAGE value="Add exception catch on image in TheMonument class&#10;Fix API &#10;Add info in the txt file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add exception catch on image in TheMonument class&#10;Fix API &#10;Add info in the txt file" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

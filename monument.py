@@ -6,7 +6,7 @@ source_directory = path.join(script_directory, "info_img")
 
 
 class TheMonument:
-    def __init__(self, deg_x, deg_y, name, link):
+    def __init__(self, deg_x, deg_y, name, link=None):
         self.deg_x = deg_x
         self.deg_y = deg_y
         self.name = name

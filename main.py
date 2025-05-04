@@ -8,7 +8,12 @@ from osmfix import _build_headers
 from geocoder.osm import OsmQuery
 
 
-MIN_ZOOM_LEVEL = 16
+MIN_ZOOM_LEVEL = 15
+upper_lat = 55.48818700530422
+down_lat = 55.40466320701811
+west_lng = 37.702855481638126
+east_lng = 37.78950373603266
+
 
 OsmQuery._build_headers = _build_headers
 
@@ -24,29 +29,20 @@ def enforce_min_zoom():
 
 def enforce_position():
     map_pos_lat, map_pos_lng = map_widget.get_position()
-    if (map_pos_lat >= 55.45818700530422 or map_pos_lat <= 55.41466320701811 or map_pos_lng >= 37.78950373603266
-            or map_pos_lng <= 37.732855481638126):
+    if (map_pos_lat >= 55.45553725452048 or map_pos_lat <= 55.40167158988299 or map_pos_lng >= 37.79927875353329
+            or map_pos_lng <= 37.699313912200495):
         map_widget.set_position(55.4407981, 37.7516731)
     window.after(1000, enforce_position)
 
 
-# def on_map_click(coordinates_tuple):
-#     lat, lng = coordinates_tuple
-#
-#     for marker in markers:
-#         marker_lat, marker_lng = marker.position
-#         if abs(lat - marker_lat) < CLICK_RADIUS and abs(lng - marker_lng) < CLICK_RADIUS:
-#             print(f"Marker at {marker.position} clicked!")
-
-def size_update(root: Toplevel, frame: Frame):
-    pass
+def on_map_click(coordinates_tuple):
+    lat, lng = coordinates_tuple
+    print(lat, lng)
 
 
 def marker_event(marker: tkm.map_widget.CanvasPositionMarker):
     x, y = marker.position
-    adr = tkm.convert_coordinates_to_address(x, y)
-    print(adr)
-    adr_info = adr.state, adr.city, adr.street, adr.latlng
+    address = tkm.convert_coordinates_to_address(x, y)
 
     with builtins.open(os.path.join(source_directory, f"{marker.text.lower()}.txt"), 'r', encoding='utf-8') as file:
         contents = file.read()
@@ -57,7 +53,8 @@ def marker_event(marker: tkm.map_widget.CanvasPositionMarker):
     frame = Frame(info_window)
 
     Label(frame, text=f"Достопримечательность: {marker.text}").pack(anchor='w')
-    Label(frame, text=f"Находится по адресу \"{adr.state} {adr.city} {adr.street}\" {adr.latlng}").pack(anchor='w')
+    Label(frame, text=f"Находится по адресу {address.state} {address.city}"
+                      f" {address.street} и на координатах {address.latlng}").pack(anchor='w')
     Label(frame, text=contents, justify="left").pack(anchor='w')
 
     if marker.data is not None:
@@ -74,16 +71,14 @@ def marker_event(marker: tkm.map_widget.CanvasPositionMarker):
     info_window.geometry(f"{width}x{height}")
 
 
-
-
 def marker_creation(marker_set):
     for monument in marker_set:
         if monument.image:
             map_widget.set_marker(monument.deg_x, monument.deg_y, monument.name, text_color="white",
                                   image=monument.image, data=monument.link, command=marker_event)
         else:
-            map_widget.set_marker(monument.deg_x, monument.deg_y, monument.name, text_color="white", data=monument.link, command=marker_event)
-
+            map_widget.set_marker(monument.deg_x, monument.deg_y, monument.name, text_color="white",
+                                  data=monument.link, command=marker_event)
 
 
 window = Tk()
@@ -91,7 +86,11 @@ window.title('Достопримечательности Домодедово')
 window.geometry('960x600')
 
 monuments = {
-    TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы", link="google.com"),
+    TheMonument(55.440687, 37.766823, "Обелиск славы"),
+    TheMonument(55.409595, 37.739189, "Стена скорби"),
+    TheMonument(55.420316, 37.743705, "Курганы вятичей"),
+    TheMonument(55.433077, 37.766199, "Богиня победы Ника"),
+
 
 }
 
@@ -110,7 +109,7 @@ map_widget.set_position(55.4407981, 37.7516731)
 map_widget.set_zoom(MIN_ZOOM_LEVEL)
 map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=19)
 
-# map_widget.add_left_click_map_command(on_map_click)
+map_widget.add_left_click_map_command(on_map_click)
 
 
 # Obelisk = TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы", info="В честь войны")
