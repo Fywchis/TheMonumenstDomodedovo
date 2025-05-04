@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Make code more readable">
+    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Fix grammar mistakes in description">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/info_img/богиня победы ника.txt" beforeDir="false" afterPath="$PROJECT_DIR$/info_img/богиня победы ника.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +351,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746374144522</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Fix grammar mistakes in description">
+      <option name="closed" value="true" />
+      <created>1746375490564</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1746375490564</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -385,7 +395,8 @@
     <MESSAGE value="Add exception catch on image in TheMonument class&#10;Fix API &#10;Add info in the txt file" />
     <MESSAGE value="Add new monuments and markers with images&#10;Remake enforce min zoom&#10;Add load_offline_tiles.py" />
     <MESSAGE value="Make code more readable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make code more readable" />
+    <MESSAGE value="Fix grammar mistakes in description" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix grammar mistakes in description" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

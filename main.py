@@ -35,11 +35,6 @@ def enforce_position():
     window.after(1000, enforce_position)
 
 
-def on_map_click(coordinates_tuple):
-    lat, lng = coordinates_tuple
-    print(lat, lng)
-
-
 def marker_event(marker: tkm.map_widget.CanvasPositionMarker):
     x, y = marker.position
     address = tkm.convert_coordinates_to_address(x, y)
@@ -106,15 +101,6 @@ map_widget.place(relx=0.5, rely=0.5, anchor=CENTER)
 map_widget.set_position(55.4407981, 37.7516731)
 map_widget.set_zoom(MIN_ZOOM_LEVEL)
 map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=19)
-
-map_widget.add_left_click_map_command(on_map_click)
-
-
-# Obelisk = TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы", info="В честь войны")
-# Obelisk = TheMonument(deg_x=55.440687, deg_y=37.766823, name="Обелиск славы", info="В честь войны")
-# create_marker(Obelisk.deg_x, Obelisk.deg_y, Obelisk.name)
-# marker_1 = map_widget.set_marker(Obelisk.deg_x, Obelisk.deg_y, Obelisk.name, text_color="white",
-#                                  image=Obelisk.image, data=Obelisk.info, command=marker_event)
 
 enforce_min_zoom()
 enforce_position()
