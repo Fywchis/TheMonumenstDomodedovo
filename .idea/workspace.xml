@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Remove useless code">
+    <list default="true" id="7182c306-64f5-4a61-ab18-fe3fe9d686b5" name="Changes" comment="Change in README.md">
+      <change afterPath="$PROJECT_DIR$/info_img/аллея 60-летия победы.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info_img/аллея 60-летия победы.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info_img/в.и. ленин.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info_img/в.и. ленин.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info_img/виктор васильевич талалихин.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/info_img/виктор васильевич талалихин.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/osmfix.py" beforeDir="false" afterPath="$PROJECT_DIR$/osmfix.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,12 +80,13 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Admin/ProgrammingProjects/TheMonumenstDomodedovo",
+    "last_opened_file_path": "C:/Users/Admin/ProgrammingProjects/TheMonumenstDomodedovo/info_img",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\ProgrammingProjects\TheMonumenstDomodedovo\info_img" />
       <recent name="C:\Users\Admin\PycharmProjects\TheMonumenstDomodedovo\Images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -367,7 +375,23 @@
       <option name="project" value="LOCAL" />
       <updated>1746375840815</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Add path change">
+      <option name="closed" value="true" />
+      <created>1746377189081</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1746377189081</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Change in README.md">
+      <option name="closed" value="true" />
+      <created>1746377504544</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1746377504545</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -405,7 +429,9 @@
     <MESSAGE value="Make code more readable" />
     <MESSAGE value="Fix grammar mistakes in description" />
     <MESSAGE value="Remove useless code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove useless code" />
+    <MESSAGE value="Add path change" />
+    <MESSAGE value="Change in README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change in README.md" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

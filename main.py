@@ -38,6 +38,8 @@ def enforce_position():
 def marker_event(marker: tkm.map_widget.CanvasPositionMarker):
     x, y = marker.position
     address = tkm.convert_coordinates_to_address(x, y)
+    coords = StringVar()
+    coordinates = f"и на координатах {address.latlng}"
 
     with builtins.open(os.path.join(source_directory, f"{marker.text.lower()}.txt"), 'r', encoding='utf-8') as file:
         contents = file.read()
@@ -48,8 +50,11 @@ def marker_event(marker: tkm.map_widget.CanvasPositionMarker):
     frame = Frame(info_window)
 
     Label(frame, text=f"Достопримечательность: {marker.text}").pack(anchor='w')
+
     Label(frame, text=f"Находится по адресу {address.state} {address.city}"
-                      f" {address.street} и на координатах {address.latlng}").pack(anchor='w')
+                      f" {address.street}").pack(anchor='w')
+    coords.set(coordinates)
+    Entry(frame, textvariable=coords, width=len(coordinates), state="readonly").pack(anchor='w')
     Label(frame, text=contents, justify="left").pack(anchor='w')
 
     if marker.data is not None:
@@ -64,7 +69,6 @@ def marker_event(marker: tkm.map_widget.CanvasPositionMarker):
     width = frame.winfo_width() + 20
     height = frame.winfo_height() + 20
     info_window.geometry(f"{width}x{height}")
-
 
 def marker_creation(marker_set):
     for monument in marker_set:
@@ -83,8 +87,11 @@ window.geometry('960x600')
 monuments = {
     TheMonument(55.440687, 37.766823, "Обелиск славы"),
     TheMonument(55.409595, 37.739189, "Стена скорби"),
-    TheMonument(55.420316, 37.743705, "Курганы вятичей"),
-    TheMonument(55.433077, 37.766199, "Богиня победы Ника"),
+    # TheMonument(55.420316, 37.743705, "Курганы вятичей"),
+    TheMonument(55.437095, 37.767415, "В.И. Ленин"),
+    TheMonument(55.433077, 37.766199, "Богиня победы Ника", "http://zhuravli.uonb.ru/?page_id=1979"),
+    TheMonument(55.444081, 37.741007, "аллея 60-летия Победы", "https://new.domod.ru/novosti/domodedovskiy-arkhiv-alleya-60-letiya-pobedy-v-domodedovo/"),
+    TheMonument(55.422472, 37.769102, "Виктор Васильевич Талалихин")
 }
 
 
